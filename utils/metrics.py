@@ -8,18 +8,20 @@ from typing import Iterable
 import numpy as np
 from .ops_utils import convert_to_np
 
-# euclidean distance
-
 
 def l2_dist(x: Iterable, y: Iterable) -> np.float64:
+    """
+    Returns Euclidean Distance.
+    """
     x, y = convert_to_np(x, y)
 
     return np.sum((x-y)**2)
 
-# manhattan distance
-
 
 def l1_dist(x: Iterable, y: Iterable) -> np.float64:
+    """
+    Returns Manhattan Distance.
+    """
     x, y = convert_to_np(x, y)
 
     return np.sum((np.abs(x-y)))
