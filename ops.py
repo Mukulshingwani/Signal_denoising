@@ -14,7 +14,12 @@ import utils
 def get_denoising_kernel(kernel_size: int) -> np.ndarray:
     # uniform kernel
     kernel = np.ones(kernel_size) / kernel_size
-
+    """
+    this forms our required uniform kernel
+    Example:
+    if size = 3, then kernel would look like
+    [1/3, 1/3, 1/3]
+    """
     return kernel
 
 
