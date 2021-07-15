@@ -12,7 +12,7 @@ import utils
 # ------------------------------- Denoising --------------------------------- #
 
 def get_denoising_kernel(kernel_size: int) -> np.ndarray:
-    # averaging kernel
+    # uniform kernel
     kernel = np.ones(kernel_size) / kernel_size
 
     return kernel
