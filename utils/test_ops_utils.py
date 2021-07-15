@@ -31,7 +31,7 @@ def test_conv1d():
     b = [1, 2, 3, 4, 5, 6]
     a = np.array(a)
     b = np.array(b)
-    assert np.allclose(conv1d(b, a), np.convolve(b, a))
+    assert np.allclose(conv1d(b, a), np.convolve(b, a, mode='same'))
 
 
 if __name__ == '__main__':

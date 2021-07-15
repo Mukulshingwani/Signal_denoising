@@ -71,10 +71,11 @@ def conv1d(inp: np.ndarray, kernel: np.ndarray) -> np.ndarray:
     curr_idx = 0
 
     # index in the padded input after which all the entries are padded zeros
-    end_idx = len(inp) - len_to_pad
+    end_idx = len(inp) - kernel_size
 
-    while curr_idx < end_idx:
+    while curr_idx <= end_idx:
         inp_slice = inp[curr_idx:curr_idx + kernel_size]
+        print(inp_slice)
         entry = np.dot(inp_slice, kernel)
         # or entry = np.sum(inp_slice * kernel)  :)
         out_signal = np.append(out_signal, entry)
