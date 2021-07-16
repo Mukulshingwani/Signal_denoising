@@ -23,17 +23,13 @@ def get_denoising_kernel(kernel_size: int) -> np.ndarray:
     return kernel
 
 
-def _denoise(inp: np.ndarray, kernel_size: int = 3) -> np.ndarray:
-    kernel = get_denoising_kernel(kernel_size)
+def denoise(inp: np.ndarray, kernel_size: int = 3) -> np.ndarray:
+    denoising_kernel = get_denoising_kernel(kernel_size)
 
     # padding and all is taken care inside of conv1d function.
-    out = utils.conv1d(inp, kernel)
+    out = utils.conv1d(inp, denoising_kernel)
 
     return out
-
-
-def denoise(inp: np.ndarray) -> np.ndarray:
-    pass
 
 
 # ------------------------------ De-Blurring -------------------------------- #
