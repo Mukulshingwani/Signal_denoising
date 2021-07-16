@@ -95,7 +95,22 @@ def fourier_transform(inp: np.ndarray) -> np.ndarray:
 
 
 def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
-    pass
+    """
+    - This Function is used for calculating the inverse Fourier Transform
+    - formula used is mentioned in our report
+    """
+    input_sig = np.asarray(np.ndarray, dtype=float)
+    # array length
+    N = input_sig.shape[0]
+    # new array of length N [0, N-1] , as per the formula
+    n = np.arange(N)
+    # since k varies from 0 to N-1
+    k = n.reshape((N, 1))
+    # Calculate the exponential of all elements in the input array
+    # as per the formula of inverse DFT (mentioned in our report)
+    expo_term = np.exp(2j * np.pi * n * k / N)
+
+    return 1 / N * np.dot(expo_term, input_sig)
 
 
 def FT(inp: np.ndarray) -> np.ndarray:
