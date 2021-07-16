@@ -99,10 +99,10 @@ def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
     - This Function is used for calculating the inverse Fourier Transform
     - formula used is mentioned in our report
     """
-    input_sig = np.asarray(np.ndarray, dtype=float)
+    input_sig = np.asarray(inp, dtype=float)
     # array length
     N = input_sig.shape[0]
-    # new array of length N [0, N-1] , as per the formula
+    # new array of length N [0, N-1], as per the formula
     n = np.arange(N)
     # since k varies from 0 to N-1
     k = n.reshape((N, 1))
