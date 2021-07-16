@@ -140,7 +140,10 @@ def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
     # as per the formula of inverse DFT (mentioned in our report)
     expo_term = np.exp(2j * np.pi * n * k / N)
 
-    return 1 / N * np.dot(expo_term, inp)
+    ift = 1 / N * np.dot(expo_term, inp)
+
+    # since we are dealing with real parts only here,
+    return ift.real
 
 
 def DFT(inp: np.ndarray) -> np.ndarray:
