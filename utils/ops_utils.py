@@ -147,7 +147,8 @@ def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
     return ift.real
 
 
-def DFT(inp: np.ndarray) -> np.ndarray:
+def DFT(inp: np.ndarray, num_samples: int = 1000,
+        indices_collide: bool = True) -> np.ndarray:
     """
     Alias for `fourier_transform`
     """
