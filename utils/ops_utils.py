@@ -122,7 +122,7 @@ def discrete_fourier_transform(inp: np.ndarray, num_samples: int = 1000,
 
     dft = inp.reshape(1, signal_len) @ transformation_matrix
 
-    return dft
+    return dft.flatten()
 
 
 def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
@@ -130,9 +130,8 @@ def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
     - This Function is used for calculating the inverse Fourier Transform
     - formula used is mentioned in our report
     """
-    input_sig = np.asarray(inp, dtype=float)
     # array length
-    N = input_sig.shape[0]
+    N = inp.shape[0]
     # new array of length N [0, N-1], as per the formula
     n = np.arange(N)
     # since k varies from 0 to N-1
@@ -141,7 +140,7 @@ def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
     # as per the formula of inverse DFT (mentioned in our report)
     expo_term = np.exp(2j * np.pi * n * k / N)
 
-    return 1 / N * np.dot(expo_term, input_sig)
+    return 1 / N * np.dot(expo_term, inp)
 
 
 def DFT(inp: np.ndarray) -> np.ndarray:
