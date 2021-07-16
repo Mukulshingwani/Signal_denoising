@@ -90,8 +90,39 @@ def conv1d(inp: np.ndarray, kernel: np.ndarray) -> np.ndarray:
     return out_signal
 
 
-def fourier_transform(inp: np.ndarray) -> np.ndarray:
-    pass
+def discrete_fourier_transform(inp: np.ndarray, num_samples: int = 1000,
+                               indices_collide: bool = True) -> np.ndarray:
+    """
+    a note about `indices_collide`:
+        - Should be set to `True` only when the value at zeroth index of `inp`
+          array denotes the value of signal at n=0.
+        - Should be set to `False` when it doesn't. This is the case with the
+          blur kernel h[n] since the question states that the mid element(6/16)
+          of h[n] corresponds to n=0.
+    """
+    signal_len = len(inp)
+
+    if indices_collide:
+        # range of summation in the formula
+        range_of_summation = np.arange(signal_len).reshape(signal_len, 1)
+    else:
+        left_limit = -signal_len // 2
+        right_limit = signal_len // 2
+
+        # since arange(-n, n) produces [-n,...,n-1]
+        range_of_summation = np.arange(left_limit, right_limit+1)\
+            .reshape(signal_len, 1)
+
+    # this array contains the indices of samples
+    sample_indices = np.arange(num_samples).reshape(1, num_samples)
+
+    # Fourier Transform matrix
+    transformation_matrix = np.exp(-2j * np.pi * range_of_summation
+                                   * sample_indices / num_samples)
+
+    dft = inp.reshape(1, signal_len) @ transformation_matrix
+
+    return dft
 
 
 def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
@@ -113,11 +144,11 @@ def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
     return 1 / N * np.dot(expo_term, input_sig)
 
 
-def FT(inp: np.ndarray) -> np.ndarray:
+def DFT(inp: np.ndarray) -> np.ndarray:
     """
     Alias for `fourier_transform`
     """
-    return fourier_transform(inp)
+    return discrete_fourier_transform(inp)
 
 
 def IFT(inp: np.ndarray) -> np.ndarray:
