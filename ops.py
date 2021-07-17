@@ -37,10 +37,13 @@ def denoise(inp: np.ndarray, kernel_size: int = 3) -> np.ndarray:
 def deblur(blurred_signal: np.ndarray, blur_kernel: np.ndarray) -> np.ndarray:
     signal_size = blurred_signal.shape
 
-    dft_inp = utils.DFT(blurred_signal)
-    dft_blur_kernel = utils.DFT(blur_kernel, indices_collide=False)
+    dft_blurred_sig = utils.discrete_fourier_transform(blurred_signal)
+    dft_blur_kernel = utils.discrete_fourier_transform(blur_kernel,
+                                                       indices_collide=False)
 
-    recovered_signal = utils.IFT(dft_inp / dft_blur_kernel)
+    dft_original_signal = dft_blurred_sig / dft_blur_kernel
+
+    recovered_signal = utils.inverse_fourier_transform(dft_original_signal)
 
     # now this recovered signal consists of the original (unblurred) signal
     # But it is repeated after every `signal_size` indices
