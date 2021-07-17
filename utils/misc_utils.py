@@ -14,6 +14,8 @@ def graph_plot(x, y):
     # plt.scatter(parameter_on_x, parameter_on_y, size of dot, color of dot)
     plt.scatter(x_axis, x, s=1, c='blue')
     plt.scatter(x_axis, y, s=1, c='red')
+    # plt.xlim(0,192) for limitting the value of x axis
+    # plt.ylim(0,50) for limitting the value of y axis
     plt.show()
 
 
