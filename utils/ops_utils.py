@@ -142,8 +142,10 @@ def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
 
     ift = 1 / N * np.dot(expo_term, inp)
 
-    # since we are dealing with real parts only here
-    # and imaginary part is quite insignificant:
+    # since the signal is only in the real parts so,
+    # we are dealing with real parts only here
+    # and imaginary part is quite insignificant so returning
+    # just the real part of the signal
     return ift.real
 
 
