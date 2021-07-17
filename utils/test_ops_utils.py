@@ -8,7 +8,7 @@ the exact root of errors.
 """
 
 from .ops_utils import (
-    zero_pad, conv1d
+    discrete_fourier_transform, inverse_fourier_transform, zero_pad, conv1d
     )
 import numpy as np
 
@@ -32,6 +32,35 @@ def test_conv1d():
     a = np.array(a)
     b = np.array(b)
     assert np.allclose(conv1d(b, a), np.convolve(b, a, mode='same'))
+
+
+def test_Discrete_Fourier_Transform():
+    inp = [1, 2, 3, 4, 5, 6, 7]
+    inp = np.array(inp)
+    our_output = discrete_fourier_transform(inp, 1000, True)
+    fft_output = np.fft.fft(inp, 1000)
+    assert np.allclose(our_output, fft_output)
+
+
+def test_Inverse_Fourier_Transform():
+    inp = [1, 2, 3, 4, 5, 6, 7]
+    inp = np.array(inp)
+    our_output = inverse_fourier_transform(inp)
+    ifft_output = np.fft.ifft(inp).real
+    assert np.allclose(our_output, ifft_output)
+
+
+def test_sync():
+    """
+    test for checking the syncing of the function by applying
+    inverse fourier transform to the discrete fourier transform
+    of the signal to obtain back the original input signal
+    """
+    inp = [1, 2, 3, 4, 5]
+    inp = np.array(inp)
+    fft_of_inp = discrete_fourier_transform(inp, 1000, True)
+    recovered_inp = inverse_fourier_transform(fft_of_inp)
+    assert np.allclose(inp, recovered_inp[:len(inp)])
 
 
 if __name__ == '__main__':
