@@ -79,7 +79,6 @@ def conv1d(inp: np.ndarray, kernel: np.ndarray) -> np.ndarray:
     # in each traversal , which will finally give us the required Convolution
     while curr_idx <= end_idx:
         inp_slice = inp[curr_idx:curr_idx + kernel_size]
-        print(inp_slice)
         entry = np.dot(inp_slice, kernel)
         # taking the dot product
         # OR

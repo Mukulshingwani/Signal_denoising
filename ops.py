@@ -35,7 +35,7 @@ def denoise(inp: np.ndarray, kernel_size: int = 3) -> np.ndarray:
 # ------------------------------ De-Blurring -------------------------------- #
 
 def deblur(blurred_signal: np.ndarray, blur_kernel: np.ndarray) -> np.ndarray:
-    signal_size = blurred_signal.shape
+    signal_size = blurred_signal.shape[0]
 
     dft_blurred_sig = utils.discrete_fourier_transform(blurred_signal)
     dft_blur_kernel = utils.discrete_fourier_transform(blur_kernel,
