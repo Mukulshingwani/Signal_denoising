@@ -110,7 +110,7 @@ def discrete_fourier_transform(inp: np.ndarray, num_samples: int = 1000,
         right_limit = signal_len // 2
 
         # since arange(-n, n) produces [-n,...,n-1]
-        range_of_summation = np.arange(left_limit, right_limit+1)\
+        range_of_summation = np.arange(left_limit+1, right_limit+1)\
             .reshape(signal_len, 1)
 
     # this array contains the indices of samples
