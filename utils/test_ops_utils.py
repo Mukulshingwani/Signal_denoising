@@ -58,7 +58,7 @@ def test_sync():
     """
     inp = [1, 2, 3, 4, 5]
     inp = np.array(inp)
-    fft_of_inp = discrete_fourier_transform(inp, 1000, True)
+    fft_of_inp = discrete_fourier_transform(inp)
     recovered_inp = inverse_fourier_transform(fft_of_inp)
     assert np.allclose(inp, recovered_inp[:len(inp)])
 
