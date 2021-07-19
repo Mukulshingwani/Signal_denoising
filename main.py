@@ -12,7 +12,7 @@ y = np.array(y)
 h = np.array([1/16, 4/16, 6/16, 4/16, 1/16])
 
 misc_utils.graph_plot(x, y)
-p = denoise(y, 5)
+p = denoise(y)
 misc_utils.graph_plot(x, p)
 q = deblur(p, h)
 misc_utils.graph_plot(x, q)
