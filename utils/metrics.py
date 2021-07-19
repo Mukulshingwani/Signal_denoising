@@ -36,6 +36,6 @@ def correlation(x: Iterable, y: Iterable) -> np.float64:
 def energy_diff(x: Iterable, y: Iterable) -> np.float64:
     x, y = convert_to_np(x, y)
 
-    diff = np.sum(np.abs(x**2 - y**2))
+    diff = np.sum(y**2) - np.sum(x**2)
 
     return diff

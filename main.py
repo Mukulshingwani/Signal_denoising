@@ -25,9 +25,9 @@ def get_data():
     y = data[1:, 1]
     h = np.array([1/16, 4/16, 6/16, 4/16, 1/16])
 
-    # each entry `k_size` correspons to the length of the kernel size that we
+    # each entry `k_size` corresponds to the length of the kernel size that we
     # will use for denoising operation. Then we de-blur each of the obtained
-    #  denoised signal and recover the signal corresponding to each operation.
+    # denoised signal and recover the signal corresponding to each operation.
     # then we plot the signal which has the highest correlation with the
     # original signal `x`.
     kernel_sizes = [3, 5, 7, 9]
@@ -87,5 +87,10 @@ if __name__ == '__main__':
         if signal.metrics.energy_diff < best_signal_b.metrics.energy_diff:
             best_signal_b = signal
 
+    print(best_signal_a.denoise_kernel_size)
+    print(best_signal_b.denoise_kernel_size)
+    print(best_signal_b.metrics.energy_diff)
+    print(best_signal_a.metrics.energy_diff)
     misc_utils.graph_plot(x, best_signal_a.signal)
     misc_utils.graph_plot(x, best_signal_b.signal)
+    misc_utils.graph_plot(best_signal_a.signal, best_signal_b.signal)
