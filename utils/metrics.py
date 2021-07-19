@@ -27,27 +27,13 @@ def l1_dist(x: Iterable, y: Iterable) -> np.float64:
     return np.sum((np.abs(x-y)))
 
 
-def cos_sim(x: Iterable, y: Iterable) -> np.float64:
-    """
-    Cosine similarity:
-    This can be viewed as Similarity (in Time domain) between
-    the signals `x` and `y`
-    """
-    x, y = convert_to_np(x, y)
-
-    dot = np.dot(x, y)
-    inv_scale_f = np.linalg.norm(x) * np.linalg.norm(y)
-
-    return dot / inv_scale_f
-
-
 def correlation(x: Iterable, y: Iterable) -> np.float64:
     x, y = convert_to_np(x, y)
 
     return np.sum(np.correlate(x, y))
 
 
-def energy_dif(x: Iterable, y: Iterable) -> np.float64:
+def energy_diff(x: Iterable, y: Iterable) -> np.float64:
     x, y = convert_to_np(x, y)
 
     diff = np.sum(np.abs(x**2 - y**2))
