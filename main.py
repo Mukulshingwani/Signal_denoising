@@ -50,7 +50,8 @@ if __name__ == '__main__':
     recovered_signals_method_b = list()
 
     x, y, blur_kernel, denoise_kernel_sizes = get_data()
-
+    # this loop helps in determining, the size of the kernel for which
+    # the recovery of the signal system is most optimal
     for k_size in denoise_kernel_sizes:
         # Method A ------------------------------------------------------
         denoised_signal = denoise(y, k_size)
@@ -86,8 +87,7 @@ if __name__ == '__main__':
     for signal in recovered_signals_method_b:
         if signal.metrics.energy_diff < best_signal_b.metrics.energy_diff:
             best_signal_b = signal
-
-    print(best_signal_a.denoise_kernel_size)
+    print(best_signal_a.denoise_kernel_size)  # gives us the best size used
     print(best_signal_b.denoise_kernel_size)
     print(best_signal_b.metrics.energy_diff)
     print(best_signal_a.metrics.energy_diff)
