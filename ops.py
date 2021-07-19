@@ -49,4 +49,4 @@ def deblur(blurred_signal: np.ndarray, blur_kernel: np.ndarray) -> np.ndarray:
     # But it is repeated after every `signal_size` indices
     # So, if we just consider the values from index 0 to `signal_size`-1,
     # they must contain the original (unblurred) signal.
-    return recovered_signal[:signal_size]
+    return recovered_signal[:signal_size].real

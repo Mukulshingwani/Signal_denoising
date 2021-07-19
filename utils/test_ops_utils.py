@@ -44,7 +44,7 @@ def test_Discrete_Fourier_Transform():
 def test_Inverse_Fourier_Transform():
     inp = np.random.randn(1000)
     our_output = inverse_fourier_transform(inp)
-    ifft_output = np.fft.ifft(inp).real
+    ifft_output = np.fft.ifft(inp)
     assert np.allclose(our_output, ifft_output)
 
 
@@ -57,7 +57,7 @@ def test_sync():
     inp = np.random.randn(200)
     fft_of_inp = discrete_fourier_transform(inp)
     recovered_inp = inverse_fourier_transform(fft_of_inp)
-    assert np.allclose(inp, recovered_inp[:len(inp)])
+    assert np.allclose(inp, recovered_inp[:len(inp)].real)
 
 
 if __name__ == '__main__':

@@ -148,19 +148,4 @@ def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
     # we are dealing with real parts only here
     # and imaginary part is quite insignificant so returning
     # just the real part of the signal
-    return ift.real
-
-
-def DFT(inp: np.ndarray, num_samples: int = 1000,
-        indices_collide: bool = True) -> np.ndarray:
-    """
-    Alias for `fourier_transform`
-    """
-    return discrete_fourier_transform(inp)
-
-
-def IFT(inp: np.ndarray) -> np.ndarray:
-    """
-    Alias for `inverse_fourier_transform`
-    """
-    return inverse_fourier_transform(inp)
+    return ift
