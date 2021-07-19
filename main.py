@@ -90,8 +90,8 @@ if __name__ == '__main__':
             best_signal_b = signal
     print(best_signal_a.denoise_kernel_size)  # gives us the best size used
     print(best_signal_b.denoise_kernel_size)
-    print(best_signal_b.metrics.energy_diff)
     print(best_signal_a.metrics.energy_diff)
+    print(best_signal_b.metrics.energy_diff)
     misc_utils.graph_plot(x, best_signal_a.signal)
     misc_utils.graph_plot(x, best_signal_b.signal)
     misc_utils.graph_plot(best_signal_a.signal, best_signal_b.signal)

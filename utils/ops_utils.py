@@ -46,6 +46,11 @@ def zero_pad(inp: np.ndarray or Iterable, pad_len: int) -> np.ndarray:
     return np.array(out)
 
 
+def prepare_for_h_ft(inp: np.ndarray) -> np.ndarray:
+    out = np.nan_to_num(1. / inp.flatten(), nan=np.finfo('float64').max)
+    return out
+
+
 def conv1d(inp: np.ndarray, kernel: np.ndarray) -> np.ndarray:
     """
     Performs 1D Convolution operation.
@@ -122,7 +127,9 @@ def discrete_fourier_transform(inp: np.ndarray, num_samples: int = 1000,
                                    * sample_indices / num_samples)
 
     dft = inp.reshape(1, signal_len) @ transformation_matrix
-
+    if not indices_collide:
+        dft = prepare_for_h_ft(dft)
+        return dft
     return dft.flatten()
 
 
