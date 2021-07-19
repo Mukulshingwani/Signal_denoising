@@ -35,16 +35,14 @@ def test_conv1d():
 
 
 def test_Discrete_Fourier_Transform():
-    inp = [1, 2, 3, 4, 5, 6, 7]
-    inp = np.array(inp)
+    inp = np.random.randn(200)
     our_output = discrete_fourier_transform(inp, 1000, True)
     fft_output = np.fft.fft(inp, 1000)
     assert np.allclose(our_output, fft_output)
 
 
 def test_Inverse_Fourier_Transform():
-    inp = [1, 2, 3, 4, 5, 6, 7]
-    inp = np.array(inp)
+    inp = np.random.randn(1000)
     our_output = inverse_fourier_transform(inp)
     ifft_output = np.fft.ifft(inp).real
     assert np.allclose(our_output, ifft_output)
@@ -56,8 +54,7 @@ def test_sync():
     inverse fourier transform to the discrete fourier transform
     of the signal to obtain back the original input signal
     """
-    inp = [1, 2, 3, 4, 5]
-    inp = np.array(inp)
+    inp = np.random.randn(200)
     fft_of_inp = discrete_fourier_transform(inp)
     recovered_inp = inverse_fourier_transform(fft_of_inp)
     assert np.allclose(inp, recovered_inp[:len(inp)])
