@@ -58,6 +58,7 @@ def conv1d(inp: np.ndarray, kernel: np.ndarray) -> np.ndarray:
     """
 
     # flipping the kernel
+    inp, kernel = convert_to_np(inp, kernel)
     kernel = kernel[::-1]
     kernel_size = len(kernel)
     len_to_pad = (kernel_size - 1) // 2
@@ -101,15 +102,16 @@ def discrete_fourier_transform(inp: np.ndarray, num_samples: int = 1000,
     """
     signal_len = len(inp)
 
+    inp = convert_to_np(inp)[0]
+
     if indices_collide:
         # range of summation in the formula
         range_of_summation = np.arange(signal_len).reshape(signal_len, 1)
     else:
-        left_limit = -signal_len // 2
+        left_limit = -(signal_len // 2)
         right_limit = signal_len // 2
 
-        # since arange(-n, n) produces [-n,...,n-1]
-        range_of_summation = np.arange(left_limit+1, right_limit+1)\
+        range_of_summation = np.arange(left_limit, right_limit+1)\
             .reshape(signal_len, 1)
 
     # this array contains the indices of samples
@@ -129,6 +131,7 @@ def inverse_fourier_transform(inp: np.ndarray) -> np.ndarray:
     - This Function is used for calculating the inverse Fourier Transform
     - formula used is mentioned in our report
     """
+    inp = convert_to_np(inp, dtype='complex64')[0]
     # array length
     N = inp.shape[0]
     # new array of length N [0, N-1], as per the formula
