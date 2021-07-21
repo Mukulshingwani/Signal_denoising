@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def graph_plot(x: np.ndarray, y: np.ndarray, ylim=50):
+def graph_plot(x: np.ndarray, y: np.ndarray, ylim=50, title: str = ""):
     """
     for plotting graph with two inputs( same size required as of x-axis)
     """
@@ -17,4 +17,5 @@ def graph_plot(x: np.ndarray, y: np.ndarray, ylim=50):
     plt.scatter(x_axis, y, s=1, c='red')
     plt.xlim(0, 200)  # for limitting the value of x axis
     plt.ylim(0, ylim)  # for limitting the value of y axis
+    plt.title(title)
     plt.show()
