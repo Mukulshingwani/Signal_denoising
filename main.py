@@ -102,7 +102,9 @@ if __name__ == '__main__':
           best_signal_a.metrics.correlation)
     print("Correlation of x1[n] with x[n] : ",
           best_signal_b.metrics.correlation)
-    misc_utils.graph_plot(x, best_signal_a.signal, 50, "x[n] vs x1[n]")
-    misc_utils.graph_plot(x, best_signal_b.signal, 50, "x[n] vs x2[n]")
+    misc_utils.graph_plot(x, best_signal_a.signal, 50, "x[n] vs x1[n]",
+                          "x[n]", "x1[n]")
+    misc_utils.graph_plot(x, best_signal_b.signal, 50, "x[n] vs x2[n]",
+                          "x[n]", "x2[n]")
     misc_utils.graph_plot(best_signal_a.signal, best_signal_b.signal, 50,
-                          "x1[n] v/s x2[n]")
+                          "x1[n] v/s x2[n]", "x1[n]", "x2[n]")
