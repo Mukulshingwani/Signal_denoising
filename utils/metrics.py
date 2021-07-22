@@ -39,3 +39,17 @@ def energy_diff(x: Iterable, y: Iterable) -> np.float64:
     diff = np.sum(y**2) - np.sum(x**2)
 
     return diff
+
+
+def kl_divergence(recovered_signal: Iterable,
+                  original_signal: Iterable) -> np.float64:
+    """
+    Compute KL Divergence of x and y using numpy.
+    """
+    recovered_signal, original_signal = convert_to_np(recovered_signal,
+                                                      original_signal)
+
+    kld = np.sum(original_signal * np.log(original_signal
+                                          / recovered_signal))
+
+    return kld

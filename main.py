@@ -10,6 +10,7 @@ class Metrics:
     l1_dist: np.float64
     correlation: np.float64
     energy_diff: np.float64
+    kl_divergence: np.float64
 
 
 class RecoveredSignal:
@@ -41,6 +42,7 @@ def calc_metrics(signal: np.ndarray, ref_signal: np.ndarray):
     metrics.l1_dist = utils.l1_dist(signal, ref_signal)
     metrics.correlation = utils.correlation(signal, ref_signal)
     metrics.energy_diff = utils.energy_diff(signal, ref_signal)
+    metrics.kl_divergence = utils.kl_divergence(signal, ref_signal)
 
     return metrics
 
@@ -102,6 +104,11 @@ if __name__ == '__main__':
           best_signal_a.metrics.correlation)
     print("Correlation of x1[n] with x[n] : ",
           best_signal_b.metrics.correlation)
+    print()
+    print("KL-Divergence of x1[n] with x[n] : ",
+          best_signal_a.metrics.kl_divergence)
+    print("KL-Divergence of x1[n] with x[n] : ",
+          best_signal_b.metrics.kl_divergence)
     misc_utils.graph_plot(x, best_signal_a.signal, 50, "x[n] vs x1[n]",
                           "x[n]", "x1[n]")
     misc_utils.graph_plot(x, best_signal_b.signal, 50, "x[n] vs x2[n]",
