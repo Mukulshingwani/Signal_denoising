@@ -21,4 +21,3 @@ def graph_plot(x: np.ndarray, y: np.ndarray, ylim=50, title: str = "",
     plt.title(title)
     plt.legend()
     plt.show()
-    
