@@ -64,6 +64,9 @@ if __name__ == '__main__':
     # test all the functions
     test_pad()
     test_conv1d()
+    test_Discrete_Fourier_Transform()
+    test_Inverse_Fourier_Transform()
+    test_sync()
 
     # this will only be executed once all test pass the assertion test :)
     print('\n\nWohoooo! All tests have been passed!!\n\n')
