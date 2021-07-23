@@ -46,6 +46,31 @@ def zero_pad(inp: np.ndarray or Iterable, pad_len: int) -> np.ndarray:
     return np.array(out)
 
 
+def reflective_pad(inp: np.ndarray or Iterable, pad_len: int) -> np.ndarray:
+    """
+    Pads the given input by `pad_len` on each side.
+    Padding is done on each side due to the fact that the middle element
+    of the signal indicates its value at `n=0`
+
+    Example:
+
+    >>> i = [1, 2, 3]
+    >>> pad_len = 2
+    >>> zero_pad(i, pad_len)
+    [3, 2, 1, 2, 3, 2, 1]
+    """
+    inp = list(inp)
+
+    left_pad = inp[1:pad_len+1][::-1]
+    right_pad = inp[-2:-pad_len-2:-1]
+
+    # forming our desired output list with proper padding done
+    out = left_pad + inp + right_pad
+
+    # returning it by converting it into a numpy array
+    return np.array(out)
+
+
 def conv1d(inp: np.ndarray, kernel: np.ndarray) -> np.ndarray:
     """
     Performs 1D Convolution operation.

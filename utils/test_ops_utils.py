@@ -8,7 +8,8 @@ the exact root of errors.
 """
 
 from .ops_utils import (
-    discrete_fourier_transform, inverse_fourier_transform, zero_pad, conv1d
+    discrete_fourier_transform, inverse_fourier_transform, zero_pad, conv1d,
+    reflective_pad
     )
 import numpy as np
 
@@ -16,7 +17,7 @@ import numpy as np
 np.random.seed(0)
 
 
-def test_pad():
+def test_zero_pad():
     x = [2, 4, 6, 4, 2]
     inp = np.array(x)
 
@@ -25,6 +26,18 @@ def test_pad():
     expected_out = [0, 0, 0, 2, 4, 6, 4, 2, 0, 0, 0]
 
     out = zero_pad(inp, pad_len)
+
+    assert np.allclose(out, expected_out)
+
+
+def test_reflective_pad():
+    a = np.array([1, 4, 5, 8, 3, 1, 4])
+
+    pad_len = 2
+
+    expected_out = [5, 4, 1, 4, 5, 8, 3, 1, 4, 1, 3]
+
+    out = reflective_pad(a, pad_len)
 
     assert np.allclose(out, expected_out)
 
@@ -65,7 +78,8 @@ def test_sync():
 
 if __name__ == '__main__':
     # test all the functions
-    test_pad()
+    test_zero_pad()
+    test_reflective_pad()
     test_conv1d()
     test_Discrete_Fourier_Transform()
     test_Inverse_Fourier_Transform()
