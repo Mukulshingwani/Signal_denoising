@@ -83,12 +83,12 @@ if __name__ == '__main__':
     # Find the best signal in Method A and B
     best_signal_a = recovered_signals_method_a[0]
     for signal in recovered_signals_method_a:
-        if signal.metrics.energy_diff < best_signal_a.metrics.energy_diff:
+        if signal.metrics.correlation > best_signal_a.metrics.correlation:
             best_signal_a = signal
 
     best_signal_b = recovered_signals_method_b[0]
     for signal in recovered_signals_method_b:
-        if signal.metrics.energy_diff < best_signal_b.metrics.energy_diff:
+        if signal.metrics.correlation > best_signal_b.metrics.correlation:
             best_signal_b = signal
     print("Best Size of Denoising Kernel for singal x1[n] : ",
           best_signal_a.denoise_kernel_size)
@@ -106,9 +106,9 @@ if __name__ == '__main__':
           best_signal_b.metrics.correlation)
     print()
     print("KL-Divergence of x1[n] with x[n] : ",
-          best_signal_a.metrics.kl_divergence)
+          best_signal_a.metrics.l2_dist)
     print("KL-Divergence of x1[n] with x[n] : ",
-          best_signal_b.metrics.kl_divergence)
+          best_signal_b.metrics.l2_dist)
     misc_utils.graph_plot(x, best_signal_a.signal, 50, "x[n] vs x1[n]",
                           "x[n]", "x1[n]")
     misc_utils.graph_plot(x, best_signal_b.signal, 50, "x[n] vs x2[n]",

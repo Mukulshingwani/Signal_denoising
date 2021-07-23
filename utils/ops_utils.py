@@ -56,7 +56,7 @@ def reflective_pad(inp: np.ndarray or Iterable, pad_len: int) -> np.ndarray:
 
     >>> i = [1, 2, 3]
     >>> pad_len = 2
-    >>> zero_pad(i, pad_len)
+    >>> reflective_pad(i, pad_len)
     [3, 2, 1, 2, 3, 2, 1]
     """
     inp = list(inp)
@@ -89,7 +89,7 @@ def conv1d(inp: np.ndarray, kernel: np.ndarray) -> np.ndarray:
     len_to_pad = (kernel_size - 1) // 2
 
     # calling out the function formed above to pad the input
-    inp = zero_pad(inp, pad_len=len_to_pad)
+    inp = reflective_pad(inp, pad_len=len_to_pad)
 
     # array to store our final output signal
     out_signal = np.array([])

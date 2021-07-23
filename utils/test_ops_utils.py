@@ -47,7 +47,8 @@ def test_conv1d():
     b = [1, 2, 3, 4, 5, 6]
     a = np.array(a)
     b = np.array(b)
-    assert np.allclose(conv1d(b, a), np.convolve(b, a, mode='same'))
+    padded_b = np.pad(b, 1, mode='reflect')
+    assert np.allclose(conv1d(b, a), np.convolve(padded_b, a, mode='valid'))
 
 
 def test_Discrete_Fourier_Transform():

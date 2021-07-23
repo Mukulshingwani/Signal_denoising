@@ -40,7 +40,9 @@ def deblur(blurred_signal: np.ndarray, blur_kernel: np.ndarray) -> np.ndarray:
     dft_blurred_sig = utils.discrete_fourier_transform(blurred_signal)
     dft_blur_kernel = utils.discrete_fourier_transform(blur_kernel,
                                                        indices_collide=False)
-    lower_bound = 0.65+0.65j
+
+    lower_bound = 0.85 + 0.95j
+
     dft_blur_kernel = np.clip(dft_blur_kernel, lower_bound,
                               np.max(dft_blur_kernel))
 
