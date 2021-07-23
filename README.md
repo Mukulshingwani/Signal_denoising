@@ -105,7 +105,7 @@ This file contains the functions for performing Convolution, Discrete Fourier, T
 - `convert_to_np`:
       This function converts the given arguements (which must are python iterables) and converts them into `NumPy` arrays of the given data type. The default data type chosen is `complex64` for great precision and handling of complex numbers of large magnitude.
 
-- `zero_pad`: This function is used pad the input signal with zeros before convolving it with the denoising kernel. The padding is done so that the length of the input and resultant convolved signal are equal.
+- `reflective_pad`: This function is used pad the input signal using reflective padding before convolving it with the denoising kernel. The padding is done so that the length of the input and resultant convolved signal are equal.
 
 - `conv1d`: This function convolution operation such that the length of the input and resultant convolved signal are equal.
 
