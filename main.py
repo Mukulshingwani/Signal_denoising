@@ -102,12 +102,12 @@ if __name__ == '__main__':
     print()
     print("Correlation of x1[n] with x[n] : ",
           best_signal_a.metrics.correlation)
-    print("Correlation of x1[n] with x[n] : ",
+    print("Correlation of x2[n] with x[n] : ",
           best_signal_b.metrics.correlation)
     print()
     print("KL-Divergence of x1[n] with x[n] : ",
           best_signal_a.metrics.l2_dist)
-    print("KL-Divergence of x1[n] with x[n] : ",
+    print("KL-Divergence of x2[n] with x[n] : ",
           best_signal_b.metrics.l2_dist)
     misc_utils.graph_plot(x, best_signal_a.signal, 50, "x[n] vs x1[n]",
                           "x[n]", "x1[n]")
