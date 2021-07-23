@@ -13,6 +13,9 @@ from .ops_utils import (
 import numpy as np
 
 
+np.random.seed(0)
+
+
 def test_pad():
     x = [2, 4, 6, 4, 2]
     inp = np.array(x)
