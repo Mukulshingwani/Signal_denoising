@@ -1,6 +1,8 @@
 
 # EEL2010 Programming Assignment
 
+[//]: To view the rendered version of this markdown file, please open it's preview if using VSCode or visit `https://github.com/Mukulshingwani/sns_readme`
+
 This folder contains various files which provide various building blocks, these blocks are finally assembled in file `main.py` and `ops.py` to solve the problem statement.
 
 This README is divided into following sections:
