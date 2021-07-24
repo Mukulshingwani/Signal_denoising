@@ -55,7 +55,7 @@ python main.py
 Running this command will:
    - Print the information regarding the two signals
    - Print metrics (like Energy Difference of the recovered signals from original signal, KL Divergence, etc.)
-   - Plot the graphs of x1[n] with x[n], of x2[n] with x[n] and of x1[n] with x[n].
+   - Plot the graphs of x1[n] with x[n], of x2[n] with x[n] and of x1[n] with x2[n].
 
 
 ### Testing our code
