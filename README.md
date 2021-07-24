@@ -5,6 +5,8 @@ This folder contains various files which provide various building blocks, these 
 
 This README is divided into following sections:
 
+- [Authors](#authors)
+
 - [Getting Started](#getting-started)
 
     - [Installing The Dependencies](#installing-the-dependencies)
@@ -14,6 +16,10 @@ This README is divided into following sections:
 
 - [Overview of the Code](#a-brief-overview-of-the-code)    
 [Note: This section is completely optional for you to read but it might save a lot of time while evaluating.]
+
+## Authors
+- Mukul Shingwani (B20AI023)
+- Nakul Sharma (B20AI024)
 
 ## Getting Started
 We outline below the steps required to test and run our code.
