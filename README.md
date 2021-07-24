@@ -75,6 +75,8 @@ To be precise, following functions are tested (each of which is implemented by u
 
 - `inverse_fourier_transform`: calculates the Inverse Fourier Transform of a given Discrete Fourier Transform.
 
+- [Imp] The integretiry of `inverse_fourier_transform` and `discrete_fourier_transform` functions is also tested, i.e., we check if we are able to recover a dummy signal from its Discrete Fourier Transform by applying Inverse Fourier Transform on it. Passing this test ensures that everything is working perfectly fine
+
 P.S.: All of these functions are defined in `utils/ops_utils.py`. More explanation about these functions is waiting in the next section(s).
 And all the functions to test these functions are stored in `utils/test_ops_utils.py`
 
@@ -109,7 +111,7 @@ This file contains a function which is used to plot two signals in a contrastive
 This file contains the metrics functions which we use to measure the closeness of the recovered signal and the original signal x[n].
 
 ### `utils/test_ops_utils.py`
-This file contains the test cases for the functions defined in `ops/ops_utils.py` (see below).
+This file contains the test cases for the functions defined in `ops/ops_utils.py` (see below). In addition to those, we also test the integrity of our functions `discrete_fourier_transform` and `inverse_fourier_transform` as explained in the last point of [this section](#testing-our-code).
 
 ### `utils/ops_utils.py`
 This file contains the functions for performing Convolution, Discrete Fourier, Transform and Inverse Fourier Transform and two additional functions to support these. We will first talk about these additional functions before jumping to the main ones.
