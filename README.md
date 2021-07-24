@@ -18,7 +18,7 @@ This README is divided into following sections:
 [Note: This section is completely optional for you to read but it might save a lot of time while evaluating.]
    - [utils/misc_utils.py](#utilsmisc_utilspy)
    - [utils/metrics.py](#utilsmetricspy)
-   - [utils/test_ops_utils.py](#utilstestops_utilspy)
+   - [utils/test_ops_utils.py](#utilstest_ops_utilspy)
    - [utils/ops_utils.py](#utilsops_utilspy)
    - [ops.py](#opspy)
    - [main.py](#mainpy)
