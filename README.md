@@ -136,4 +136,12 @@ It also contains the following functions:
 
 - `calc_metrics`: calculates and returns various metrics between the recovered signal and a reference signal (original signal x[n] for us).
 
-And here's what we do in the main loop:
+And here's what we do in the main body:  
+
+[ Method A: Denoising then  Deblurring  
+Method B: Deblurring then Denoising ]
+
+- We initialize two lists which will contain signals obtained using method A and B.
+- Now for each size in `kernel_sizes`(this takes the name `denoise_kernel_sizes` inside the main block), we apply both methods and store the recovered signals obtained in both cases in their respective lists, which are, `recovered_signals_method_a` and `recovered_signals_method_b`.
+- Then we find the best signal obtained from each method seperately. We define the best signal as the signal which as maximum cross-corelation with the given signal `x[n]`. We store these best signals in variables `best_signal_a` and `best_signal_b`.
+- Then we print some statistics regarding these two best signals and plot them with the original `x[n]`. We also plot them together to see how similar they are.
