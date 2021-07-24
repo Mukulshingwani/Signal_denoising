@@ -16,6 +16,12 @@ This README is divided into following sections:
 
 - [Overview of the Code](#a-brief-overview-of-the-code)    
 [Note: This section is completely optional for you to read but it might save a lot of time while evaluating.]
+   - [utils/misc_utils.py](#utilsmisc_utilspy)
+   - [utils/metrics.py](#utilsmetricspy)
+   - [utils/test_ops_utils.py](#utilstestops_utilspy)
+   - [utils/ops_utils.py](#utilsops_utilspy)
+   - [ops.py](#opspy)
+   - [main.py](#mainpy)
 
 ## Authors
 - Mukul Shingwani (B20AI023)
@@ -96,16 +102,16 @@ P.S.: all of the functions to test our implementation are available in the file 
 
 The code contains two components: utilities and primary scripts. All the utility functions are stored in `utils` folder and primary scripts are `ops.py` and `main.py`. We will briefly go over important portion of the files in this section.
 
-### `ops/misc_utils.py`
+### `utils/misc_utils.py`
 This file contains a function which is used to plot two signals in a contrastive manner.
 
-### `ops/metrics.py`
+### `utils/metrics.py`
 This file contains the metrics functions which we use to measure the closeness of the recovered signal and the original signal x[n].
 
-### `ops/test_ops_utils.py`
+### `utils/test_ops_utils.py`
 This file contains the test cases for the functions defined in `ops/ops_utils.py` (see below).
 
-### `ops/ops_utils.py`
+### `utils/ops_utils.py`
 This file contains the functions for performing Convolution, Discrete Fourier, Transform and Inverse Fourier Transform and two additional functions to support these. We will first talk about these additional functions before jumping to the main ones.
 
 - `convert_to_np`:
