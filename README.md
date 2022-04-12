@@ -1,5 +1,5 @@
 
-# EEL2010 Programming Assignment
+# Signal Denoising
 
 [//]: To view the rendered version of this markdown file, please open it's preview if using VSCode or visit `https://github.com/Mukulshingwani/sns_readme`
 
